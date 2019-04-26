@@ -1,0 +1,15 @@
+<web-app>
+
+    <!-- If using resin ensure that the xerces libraries are in the "lib" directory -->
+    
+    <!-- xml -->
+    <system-property javax.xml.parsers.DocumentBuilderFactory=
+            "org.apache.xerces.jaxp.DocumentBuilderFactoryImpl"/>
+    <system-property javax.xml.parsers.SAXParserFactory=
+            "org.apache.xerces.jaxp.SAXParserFactoryImpl"/>
+
+    <!--  xslt -->
+    <system-property javax.xml.transform.TransformerFactory=
+            "org.apache.xalan.processor.TransformerFactoryImpl"/>
+
+</web-app>

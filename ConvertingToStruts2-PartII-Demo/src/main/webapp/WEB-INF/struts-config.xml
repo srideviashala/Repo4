@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+    <form-beans>
+        <form-bean name="blogForm" type="com.fdar.articles.infoq.conversion.struts.BlogForm"/>
+    </form-beans>
+
+    <action-mappings>
+
+        <action path="/struts/add" forward="/struts/add.jsp"/>
+
+        <action path="/struts/list"
+            type="com.fdar.articles.infoq.conversion.struts.ListBlogsAction"
+            scope="request">
+            <forward
+                    name="success"
+                    path="/struts/list.jsp"/>
+        </action>
+
+        <action path="/struts/remove"
+            type="com.fdar.articles.infoq.conversion.struts.RemoveBlogEntryAction"
+            scope="request">
+            <forward
+                    name="success"
+                    redirect="true"
+                    path="/struts/list.do"/>
+        </action>
+
+        <action path="/struts/save"
+            type="com.fdar.articles.infoq.conversion.struts.SaveBlogEntryAction"
+            name="blogForm"
+            scope="request">
+            <forward
+                    name="success"
+                    redirect="true"
+                    path="/struts/list.do"/>
+        </action>
+
+        <action path="/struts/view"
+            type="com.fdar.articles.infoq.conversion.struts.ViewBlogAction"
+            scope="request">
+            <forward
+                    name="success"
+                    path="/struts/view.jsp"/>
+        </action>
+
+        <action path="/struts/edit"
+            type="com.fdar.articles.infoq.conversion.struts.ViewBlogAction"
+            scope="request">
+            <forward
+                    name="success"
+                    path="/struts/edit.jsp"/>
+        </action>
+
+        <action path="/struts/update"
+            type="com.fdar.articles.infoq.conversion.struts.UpdateBlogEntryAction"
+            name="blogForm"
+            scope="request"
+            validate="false">
+            <forward
+                    name="success"
+                    path="/struts/view.jsp"/>
+        </action>
+
+    </action-mappings>
+
+</struts-config>
